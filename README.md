@@ -36,7 +36,7 @@ L.control.slideMenu('<p>test</p>').addTo(map);
 
 ## Arguments
 ```javascript
-L.control.slideMenu(<String>innerHTML?, <slideMenu options>options?)
+L.control.slideMenu(<String>innerHTML?, <SlideMenu options>options?)
 ```
 `innerHTML:` Set the innerHTML in the menu.  
 `options:` [SlideMenu Options](https://github.com/unbam/Leaflet.SlideMenu/blob/master/README.md#options)
