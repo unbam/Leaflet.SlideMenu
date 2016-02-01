@@ -52,7 +52,7 @@ L.control.slideMenu(<String>innerHTML, <SlideMenu options>options?)
 
 ## Methods
 
-`setContents(<String>innerHTML):` Set the innerHTML in the menu. Please use here if you do not set the content to the argument of the slideMenu.
+`setContents(<String>innerHTML):` Set the innerHTML in the menu. Please use here if you do not set the innerHTML to the argument of the slide menu.
 
 
 ## Demo
