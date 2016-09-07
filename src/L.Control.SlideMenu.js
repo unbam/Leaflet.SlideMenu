@@ -11,7 +11,7 @@ L.Control.SlideMenu = L.Control.extend({
         this._innerHTML = innerHTML;
         this._startPosition = -(parseInt(this.options.width, 10));
         this._isLeftPosition = this.options.position == 'topleft' || 
-            this.options.position == 'buttomleft' ? true : false;
+            this.options.position == 'bottomleft' ? true : false;
     },
 
     onAdd: function (map) {
