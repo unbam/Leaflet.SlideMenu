@@ -10,8 +10,8 @@ L.Control.SlideMenu = L.Control.extend({
         L.Util.setOptions(this, options);
         this._innerHTML = innerHTML;
         this._startPosition = -(parseInt(this.options.width, 10));
-        this._isLeftPosition = this.options.position == 'topleft' || 
-            this.options.position == 'buttomleft' ? true : false;
+        this._isLeftPosition = this.options.position == 'topleft' ||
+        this.options.position == 'bottomleft' ? true : false;
     },
 
     onAdd: function (map) {
@@ -20,8 +20,7 @@ L.Control.SlideMenu = L.Control.extend({
         link.title = 'Menu';
         L.DomUtil.create('span', 'fa fa-bars', link);
 
-        this._menu = L.DomUtil.create('div', 'leaflet-menu', 
-            document.getElementsByClassName('leaflet-container')[0]);    
+        this._menu = L.DomUtil.create('div', 'leaflet-menu', map._container);
         this._menu.style.width = this.options.width;
         this._menu.style.height = this.options.height;
 
@@ -57,6 +56,13 @@ L.Control.SlideMenu = L.Control.extend({
 
         return this._container;
     },
+
+    onRemove: function(map){
+        //Remove sliding menu from DOM
+        map._container.removeChild(this._menu);
+        delete this._menu;
+    },
+
 
     setContents: function(innerHTML) {
         this._innerHTML = innerHTML;
