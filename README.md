@@ -45,9 +45,12 @@ L.control.slideMenu(<String>innerHTML, <SlideMenu options>options?)
 ## Options
 
 `position:` The standard Leaflet.Control position parameter. Defaults to 'topleft'  
-`width:` Set the width of the slide menu. Please be in px units. Defaults to '300px'  
+`menuposition:` Set the position of the slide menu. Defaults to 'topleft'  
+`width:` Set the width of the slide menu. Defaults to '300px'  
 `height:` Set the height of the slide menu. Defaults to '100%'  
-`delay:` The display of the slide menu set the speed for moving one by 10px. The unit is milliseconds. Defaults to '10'
+`direction:` Set the direction of the slide menu animation. Defaults to 'horizontal'  
+`changeperc:` The percentage of total size by one movement. The unit is percent. Defaults to '10'  
+`delay:` The display of the slide menu set the speed for moving one by "X"px ("X" is calculated from `changeperc`). The unit is milliseconds. Defaults to '10'
 
 
 ## Methods
