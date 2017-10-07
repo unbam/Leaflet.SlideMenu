@@ -11,7 +11,7 @@ Please set the innerHTML to slide menu.
 This control uses [Font Awesome](https://fortawesome.github.io/Font-Awesome/) for the icon by default. To use, include:
 
 ```html
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 ```
 
 Include the CSS:
