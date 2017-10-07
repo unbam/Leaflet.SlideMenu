@@ -111,6 +111,12 @@ L.Control.SlideMenu = L.Control.extend({
                 // Close
                 this._animate(this._menu, 0, frominit, false, ispx, unit);
             }, this);
+        L.DomEvent.on(this._menu, 'mouseover', function(){
+            map.scrollWheelZoom.disable();
+        });
+        L.DomEvent.on(this._menu, 'mouseout', function(){
+            map.scrollWheelZoom.enable();
+        });
 
         return this._container;
     },
