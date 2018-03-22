@@ -7,7 +7,8 @@ L.Control.SlideMenu = L.Control.extend({
         direction: 'horizontal', // vertical or horizontal
         changeperc: '10',
         delay: '10',
-        icon: 'fa-bars'
+        icon: 'fa-bars',
+        hidden: false
     },
 
     initialize: function(innerHTML, options){
@@ -119,6 +120,10 @@ L.Control.SlideMenu = L.Control.extend({
             map.scrollWheelZoom.enable();
         });
 
+        if(this.options.hidden){
+            this.hide();
+        }
+
         return this._container;
     },
 
@@ -160,6 +165,14 @@ L.Control.SlideMenu = L.Control.extend({
         else{
             return;
         }
+    },
+
+    hide: function () {
+        this._container.style.display = 'none';
+    },
+
+    show: function () {
+        this._container.style.display = 'inherit';
     }
 });
 
