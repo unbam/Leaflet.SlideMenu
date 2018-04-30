@@ -50,7 +50,8 @@ L.control.slideMenu(<String>innerHTML, <SlideMenu options>options?)
 `height:` Set the height of the slide menu. Defaults to '100%'  
 `direction:` Set the direction of the slide menu animation. Defaults to 'horizontal'  
 `changeperc:` The percentage of total size by one movement. The unit is percent. Defaults to '10'  
-`delay:` The display of the slide menu set the speed for moving one by "X"px ("X" is calculated from `changeperc`). The unit is milliseconds. Defaults to '10'
+`delay:` The display of the slide menu set the speed for moving one by "X"px ("X" is calculated from `changeperc`). The unit is milliseconds. Defaults to '10'  
+`icon:` Set the menu icon for 'Font Awesome' of the slide menu. Defaults to 'fa-bars'
 
 
 ## Methods
