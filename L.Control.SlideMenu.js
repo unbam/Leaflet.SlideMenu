@@ -6,7 +6,9 @@ L.Control.SlideMenu = L.Control.extend({
         height: '100%',
         direction: 'horizontal', // vertical or horizontal
         changeperc: '10',
-        delay: '10'
+        delay: '10',
+        icon: 'fa-bars',
+        hidden: false
     },
 
     initialize: function(innerHTML, options){
@@ -23,7 +25,7 @@ L.Control.SlideMenu = L.Control.extend({
         this._container = L.DomUtil.create('div', 'leaflet-control-slidemenu leaflet-bar leaflet-control');
         var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', this._container);
         link.title = 'Menu';
-        L.DomUtil.create('span', 'fa fa-bars', link);
+        L.DomUtil.create('span', 'fa ' + this.options.icon, link);
 
         this._menu = L.DomUtil.create('div', 'leaflet-menu', map._container);
 
@@ -118,6 +120,10 @@ L.Control.SlideMenu = L.Control.extend({
             map.scrollWheelZoom.enable();
         });
 
+        if(this.options.hidden){
+            this.hide();
+        }
+
         return this._container;
     },
 
@@ -159,6 +165,14 @@ L.Control.SlideMenu = L.Control.extend({
         else{
             return;
         }
+    },
+
+    hide: function () {
+        this._container.style.display = 'none';
+    },
+
+    show: function () {
+        this._container.style.display = 'inherit';
     }
 });
 
