@@ -1,0 +1,16 @@
+{
+  "name": "leaflet-slidemenu",
+  "version": "0.4.1",
+  "description": "A simple slide menu for Leaflet.",
+  "main": "src/L.Control.SlideMenu.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unbam/Leaflet.SlideMenu.git"
+  },
+  "keywords": [
+    "leaflet"
+  ],
+  "author": "Masashi Takeshita",
+  "license": "MIT",
+  "homepage": "https://github.com/unbam/Leaflet.SlideMenu#readme"
+}
