@@ -10,7 +10,10 @@
   "keywords": [
     "leaflet"
   ],
-  "author": "Masashi Takeshita",
+  "author": {
+    "name": "Masashi Takeshita",
+    "email": "masashibox@gmail.com"
+  },
   "license": "MIT",
   "homepage": "https://github.com/unbam/Leaflet.SlideMenu#readme"
 }
