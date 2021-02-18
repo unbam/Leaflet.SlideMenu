@@ -7,7 +7,7 @@ L.Control.SlideMenu = L.Control.extend({
         direction: 'horizontal', // vertical or horizontal
         changeperc: '10',
         delay: '10',
-        icon: 'fa-bars',
+        icon: 'fas fa-bars',
         hidden: false
     },
 
@@ -25,7 +25,7 @@ L.Control.SlideMenu = L.Control.extend({
         this._container = L.DomUtil.create('div', 'leaflet-control-slidemenu leaflet-bar leaflet-control');
         var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', this._container);
         link.title = 'Menu';
-        L.DomUtil.create('span', 'fa ' + this.options.icon, link);
+        L.DomUtil.create('span', this.options.icon, link);
 
         this._menu = L.DomUtil.create('div', 'leaflet-menu', map._container);
 
@@ -65,26 +65,26 @@ L.Control.SlideMenu = L.Control.extend({
             }
         }
 
-        var closeButton = L.DomUtil.create('button', 'leaflet-menu-close-button fa', this._menu);
+        var closeButton = L.DomUtil.create('button', 'leaflet-menu-close-button', this._menu);
 
         if(this._isHorizontal){
             if(this._isLeftPosition){
                 closeButton.style.float = 'right';
-                L.DomUtil.addClass(closeButton, 'fa-chevron-left');
+                L.DomUtil.addClass(closeButton, 'fas fa-chevron-left');
             }
             else{
                 closeButton.style.float = 'left';
-                L.DomUtil.addClass(closeButton, 'fa-chevron-right');
+                L.DomUtil.addClass(closeButton, 'fas fa-chevron-right');
             }
         }
         else{
             if(this._isTopPosition){
                 closeButton.style.float = 'right';
-                L.DomUtil.addClass(closeButton, 'fa-chevron-up');
+                L.DomUtil.addClass(closeButton, 'fas fa-chevron-up');
             }
             else{
                 closeButton.style.float = 'right';
-                L.DomUtil.addClass(closeButton, 'fa-chevron-down');
+                L.DomUtil.addClass(closeButton, 'fas fa-chevron-down');
             }
         }
 
