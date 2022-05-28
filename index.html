@@ -4,18 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>SlideMenu Demo</title>
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.2.0/leaflet.css">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="L.Control.SlideMenu.css">
-        <script src="http://cdn.leafletjs.com/leaflet/v1.2.0/leaflet.js"></script>
-        <script src="L.Control.SlideMenu.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
+        <link rel="stylesheet" href="../src/L.Control.SlideMenu.css">
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="../src/L.Control.SlideMenu.js"></script>
     </head>
     <body style="margin: 0; padding: 0;">
         <div id="map" style="position: absolute; width: 100%; height: 100%;"></div>
         <script>
             var map = L.map('map', {
-                center: [33.590241, 130.421222],
-                zoom: 15,
+                center: [-22.431, -45.123],
+                zoom: 8,
                 zoomControl: false
             });
 
@@ -54,7 +54,7 @@
             L.control.slideMenu(left + contents).addTo(map);
 
             // right
-            var slideMenu = L.control.slideMenu('', {position: 'topright', menuposition: 'topright', width: '30%', height: '400px', delay: '50', icon: 'fa-chevron-left'}).addTo(map);
+            var slideMenu = L.control.slideMenu('', {position: 'topright', menuposition: 'topright', width: '30%', height: '400px', delay: '10', icon: 'fa-solid fa-chevron-left '}).addTo(map);
             slideMenu.setContents(right + contents);
 
         </script>
