@@ -7,8 +7,16 @@ L.Control.SlideMenu = L.Control.extend({
         direction: 'horizontal', // vertical or horizontal
         changeperc: '10',
         delay: '10',
-        icon: 'fas fa-bars',
-        hidden: false
+        icon: 'fa-solid fa-bars',
+        hidden: false,
+        icon_close: {
+            class_up: 'fa fa-chevron-up',
+            class_down: 'fa fa-chevron-down',
+            class_left: 'fa fa-chevron-left',
+            class_right: 'fa fa-chevron-right',
+            size: '16pt',
+            color: '#BBCC22'
+        }
     },
 
     initialize: function(innerHTML, options){
@@ -67,24 +75,27 @@ L.Control.SlideMenu = L.Control.extend({
 
         var closeButton = L.DomUtil.create('button', 'leaflet-menu-close-button', this._menu);
 
+        closeButton.style.fontSize = this.options.icon_close.size;
+        closeButton.style.color = this.options.icon_close.color;
+
         if(this._isHorizontal){
             if(this._isLeftPosition){
                 closeButton.style.float = 'right';
-                L.DomUtil.addClass(closeButton, 'fas fa-chevron-left');
+                L.DomUtil.addClass(closeButton, this.options.icon_close.class_left);
             }
             else{
                 closeButton.style.float = 'left';
-                L.DomUtil.addClass(closeButton, 'fas fa-chevron-right');
+                L.DomUtil.addClass(closeButton, this.options.icon_close.class_right);
             }
         }
         else{
             if(this._isTopPosition){
                 closeButton.style.float = 'right';
-                L.DomUtil.addClass(closeButton, 'fas fa-chevron-up');
+                L.DomUtil.addClass(closeButton, this.options.icon_close.class_up);
             }
             else{
                 closeButton.style.float = 'right';
-                L.DomUtil.addClass(closeButton, 'fas fa-chevron-down');
+                L.DomUtil.addClass(closeButton, this.options.icon_close.class_down);
             }
         }
 
