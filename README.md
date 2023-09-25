@@ -63,7 +63,6 @@ L.control.slideMenu(<String>innerHTML, <SlideMenu options>options?)
 
 `isMenuOpened():` check if the menu is opened, exposed by the element with *id=id_button*:
 
-    ~~~js
     // create
     const menu: Control.SlideMenu = L.control.slideMenu(_htmlMenu, {
     height: '50%', 
@@ -82,7 +81,6 @@ L.control.slideMenu(<String>innerHTML, <SlideMenu options>options?)
     if (optionsButton.isMenuOpened()) {
         optionsCloseButton.click()
     }
-    ~~~
 
 ## Demo
 
