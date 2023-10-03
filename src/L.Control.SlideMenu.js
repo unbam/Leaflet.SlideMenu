@@ -36,7 +36,7 @@ L.Control.SlideMenu = L.Control.extend({
 
     onAdd: function(map){
         this._container = L.DomUtil.create('div', 'leaflet-control-slidemenu leaflet-bar leaflet-control');
-        
+
         var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', this._container);
         if (this.options && this.options.id_button) {
             // set this id to button
@@ -49,7 +49,7 @@ L.Control.SlideMenu = L.Control.extend({
             // default
             link.title = 'Menu';
         }
-        
+
         link.isMenuOpened = () => {
             // check if menu is opened by peeking the menu button
             return this._opened;
@@ -58,7 +58,10 @@ L.Control.SlideMenu = L.Control.extend({
         L.DomUtil.create('span', this.options.icon, link);
 
         this._menu = L.DomUtil.create('div', 'leaflet-menu', map._container);
-
+        if (this.options.id) {
+            this._menu['id'] = this.options.id
+        }
+        console.log(this._menu)
         this._menu.style.width = this.options.width;
         this._menu.style.height = this.options.height;
 
@@ -75,7 +78,7 @@ L.Control.SlideMenu = L.Control.extend({
                 this._menu.style.top = '0px';
             }
             else{
-                this._menu.style.bottom = '0px';
+                this._menu.style.bottom = '50px';
             }
         }
         else{
