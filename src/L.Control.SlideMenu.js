@@ -61,7 +61,7 @@ L.Control.SlideMenu = L.Control.extend({
         if (this.options.id) {
             this._menu['id'] = this.options.id
         }
-        console.log(this._menu)
+        //console.log(this._menu)
         this._menu.style.width = this.options.width;
         this._menu.style.height = this.options.height;
 
