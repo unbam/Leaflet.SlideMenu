@@ -9,6 +9,10 @@ L.Control.SlideMenu = L.Control.extend({
         delay: '10',
         icon: 'fa-solid fa-bars',
         hidden: false,
+        title: null,
+        id: null,
+        id_button: null,
+        id_close: null,
         icon_close: {
             class_up: 'fa fa-chevron-up',
             class_down: 'fa fa-chevron-down',
@@ -22,6 +26,7 @@ L.Control.SlideMenu = L.Control.extend({
     initialize: function(innerHTML, options){
         L.Util.setOptions(this, options);
         this._innerHTML = innerHTML;
+        this._opened=false;
         this._isLeftPosition = this.options.menuposition == 'topleft' ||
             this.options.menuposition == 'bottomleft' ? true : false;
         this._isTopPosition = this.options.menuposition == 'topleft' ||
@@ -31,12 +36,32 @@ L.Control.SlideMenu = L.Control.extend({
 
     onAdd: function(map){
         this._container = L.DomUtil.create('div', 'leaflet-control-slidemenu leaflet-bar leaflet-control');
+
         var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single', this._container);
-        link.title = 'Menu';
+        if (this.options && this.options.id_button) {
+            // set this id to button
+            link.id=this.options.id_button
+        }
+        if (this.options && this.options.title) {
+            link.title = this.options.title;
+        }
+        else {
+            // default
+            link.title = 'Menu';
+        }
+
+        link.isMenuOpened = () => {
+            // check if menu is opened by peeking the menu button
+            return this._opened;
+        }
+
         L.DomUtil.create('span', this.options.icon, link);
 
         this._menu = L.DomUtil.create('div', 'leaflet-menu', map._container);
-
+        if (this.options.id) {
+            this._menu['id'] = this.options.id
+        }
+        //console.log(this._menu)
         this._menu.style.width = this.options.width;
         this._menu.style.height = this.options.height;
 
@@ -53,7 +78,7 @@ L.Control.SlideMenu = L.Control.extend({
                 this._menu.style.top = '0px';
             }
             else{
-                this._menu.style.bottom = '0px';
+                this._menu.style.bottom = '50px';
             }
         }
         else{
@@ -74,7 +99,10 @@ L.Control.SlideMenu = L.Control.extend({
         }
 
         var closeButton = L.DomUtil.create('button', 'leaflet-menu-close-button', this._menu);
-
+        if (this.options && this.options.id_close) {
+            // set this id to close button
+            closeButton.id=this.options.id_close
+        }
         closeButton.style.fontSize = this.options.icon_close.size;
         closeButton.style.color = this.options.icon_close.color;
 
@@ -118,11 +146,13 @@ L.Control.SlideMenu = L.Control.extend({
             .on(link, 'click', function(){
                 // Open
                 this._animate(this._menu, frominit, 0, true, ispx, unit);
+                this._opened=true
             }, this)
             .on(closeButton, 'click', L.DomEvent.stopPropagation)
             .on(closeButton, 'click', function(){
                 // Close
                 this._animate(this._menu, 0, frominit, false, ispx, unit);
+                this._opened=false
             }, this);
         L.DomEvent.on(this._menu, 'mouseover', function(){
             map.scrollWheelZoom.disable();
